@@ -9,6 +9,8 @@
 import UIKit
 
 class MultiButtonTableViewCell: UITableViewCell {
+	
+	static let reuseIdentifier: String = "MultiButtonTableViewCell"
 
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var collectionView: UICollectionView!
@@ -28,7 +30,7 @@ class MultiButtonTableViewCell: UITableViewCell {
 		
 		collectionView.delegate = self
 		collectionView.dataSource = self
-		collectionView.register(UINib(nibName: "ButtonCollectionViewCell", bundle: Bundle(for: ButtonCollectionViewCell.self)), forCellWithReuseIdentifier: "ButtonCollectionViewCell")
+		collectionView.register(UINib(nibName: "ButtonCollectionViewCell", bundle: Bundle(for: ButtonCollectionViewCell.self)), forCellWithReuseIdentifier: ButtonCollectionViewCell.reuseIdentifier)
 		collectionView.isScrollEnabled = false
 		
 		collectionViewFlowController.estimatedItemSize = CGSize(width: 1.0, height: 1.0)
@@ -45,7 +47,7 @@ extension MultiButtonTableViewCell: UICollectionViewDelegate, UICollectionViewDa
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ButtonCollectionViewCell", for: indexPath) as? ButtonCollectionViewCell else { return UICollectionViewCell() }
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionViewCell.reuseIdentifier, for: indexPath) as? ButtonCollectionViewCell else { return UICollectionViewCell() }
 		cell.title = "BTN #\(indexPath.row)"
 		return cell
 	}

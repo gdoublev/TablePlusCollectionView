@@ -9,6 +9,8 @@
 import UIKit
 
 class ButtonCollectionViewCell: UICollectionViewCell {
+	
+	static let reuseIdentifier: String = "ButtonCollectionViewCell"
 
 	@IBOutlet weak var button: UIButton!
 	
