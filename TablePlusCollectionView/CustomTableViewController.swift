@@ -29,7 +29,9 @@ class CustomTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		print("Table View Width: \(tableView.bounds.width)")
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: MultiButtonTableViewCell.reuseIdentifier, for: indexPath) as? MultiButtonTableViewCell else { return UITableViewCell() }
+		print("Collection View DataSource: \(cell.collectionView.dataSource)")
 		cell.title = "Label #\(indexPath.row + 1)"
 		return cell
     }

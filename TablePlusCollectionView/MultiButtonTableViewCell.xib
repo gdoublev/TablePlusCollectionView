@@ -50,7 +50,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="collectionView" destination="gqZ-B9-Ypi" id="Tv5-rD-jFC"/>
-                <outlet property="collectionViewFlowController" destination="7TI-sg-0Wk" id="ANN-0a-vtA"/>
+                <outlet property="collectionViewLayout" destination="7TI-sg-0Wk" id="ANN-0a-vtA"/>
                 <outlet property="titleLabel" destination="rcb-79-ibi" id="Uya-Ic-4ZP"/>
             </connections>
         </tableViewCell>
