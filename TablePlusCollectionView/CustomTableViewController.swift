@@ -13,7 +13,7 @@ class CustomTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		tableView.register(UINib(nibName: "MultiButtonTableViewCell", bundle: Bundle(for: MultiButtonTableViewCell.self)), forCellReuseIdentifier: MultiButtonTableViewCell.reuseIdentifier)
+		tableView.register(MultiButtonTableViewCell.nib, forCellReuseIdentifier: MultiButtonTableViewCell.reuseIdentifier)
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.estimatedRowHeight = 100.0
     }
@@ -29,10 +29,11 @@ class CustomTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		print("Table View Width: \(tableView.bounds.width)")
+        print("Screen Size: \(UIScreen.main.bounds.size)")
+        print("Table View Size: \(tableView.bounds.size)")
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: MultiButtonTableViewCell.reuseIdentifier, for: indexPath) as? MultiButtonTableViewCell else { return UITableViewCell() }
-		print("Collection View DataSource: \(cell.collectionView.dataSource)")
-		cell.title = "Label #\(indexPath.row + 1)"
+        print("Table View Cell Size: \(cell.bounds.size)")
+        cell.titleLabel.text = "Label #\(indexPath.row + 1)"
 		return cell
     }
     
